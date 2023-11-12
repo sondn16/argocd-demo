@@ -18,7 +18,7 @@ spec:
   template:
     metadata:
       labels:
-        app: ecsdemo-nodejs
+        app: spring-boot-argocd
     spec:
       containers:
       - image: sondn33/spring-gradle:latest
