@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-boot-argocd
+  labels:
+    app: spring-boot-argocd
+  namespace: spring-boot-argocd
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: spring-boot-argocd
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: ecsdemo-nodejs
+    spec:
+      containers:
+      - image: sondn33/spring-boot-argocd:latest
+        imagePullPolicy: Always
+        name: spring-boot-argocd
+        ports:
+        - containerPort: 3000
+          protocol: TCP
