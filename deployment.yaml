@@ -21,7 +21,7 @@ spec:
         app: ecsdemo-nodejs
     spec:
       containers:
-      - image: sondn33/spring-boot-argocd:latest
+      - image: sondn33/spring-gradle:latest
         imagePullPolicy: Always
         name: spring-boot-argocd
         ports:
